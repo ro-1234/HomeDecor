@@ -1,0 +1,173 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+/* NAVBAR */
+nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 50px;
+  background: white;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 30px;
+}
+
+nav li {
+  cursor: pointer;
+}
+
+/* HERO */
+.hero {
+  height: 90vh;
+  background: url('furnituree.jpg') center/cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-bottom: 50px; /* hapësirë mes hero dhe slider */
+}
+
+.hero h1 {
+  color: black;
+  font-size: 40px;
+  max-width: 600px;
+}
+
+.hero button {
+  padding: 10px 20px;
+}
+
+/* Slider container */
+.photo-slider {
+  display: flex;
+  width: 100%;
+  overflow: hidden;
+  gap: 15px;
+  padding-bottom: 50px; /* pak hapësirë poshtë sliderit */
+}
+
+/* Slides (cards) */
+.photo-slider .slide {
+  flex: 0 0 200px;  /* madhësia e secilës foto/card */
+  height: 150px;
+  border-radius: 10px;
+  overflow: hidden;
+  animation: slideMove 12s linear infinite;
+}
+
+.photo-slider .slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Animation keyframes për slider horizontal */
+@keyframes slideMove {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-100%); }
+}
+/* INFO SECTION */
+.info {
+  padding: 50px;
+  background: #eee;
+  text-align: center;
+}
+
+/* Container për cards */
+.info-container {
+  display: flex;                  /* horizontal layout */
+  justify-content: space-between; /* shpërndan cards në rresht */
+  gap: 20px;                      /* hapësira mes cards */
+  flex-wrap: nowrap;              /* nuk bëhen njëri mbi tjetrin */
+}
+
+/* Secili card */
+.info-card {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  flex: 1;            /* merr hapësirë të barabartë */
+  max-width: 300px;   /* madhësi maksimale për secilën card */
+  box-shadow: 0 px 6px rgba(90, 57, 57, 0.881);
+}
+
+.info-card h2 {
+  margin-top: 0;
+  font-size: 20px;
+  color: #333;
+}
+
+.info-card p {
+  font-size: 16px;
+  color: #666;
+}
+.info-card {
+  background: white;          /* vetë card mbetet e bardhë */
+  padding: 20px;
+  border-radius: 10px;
+
+  flex: 1;                    /* merr hapësirë të barabartë */
+  max-width: 300px;
+
+  /* Shadow kafe */
+  box-shadow: 0 4px 6px rgba(139, 69, 19, 0.5); /* x-offset y-offset blur ngjyra */
+}
+.footer {
+  background: #fef8f0; /* krem shumë i lehtë */
+  color: #333;          /* tekst gri e errët për kontrast */
+  padding: 40px 50px 20px;
+  font-family: Arial, sans-serif;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+  flex-wrap: wrap;
+  margin-bottom: 30px;
+}
+
+.footer-column h3 {
+  margin-bottom: 15px;
+  font-size: 18px;
+  color: #333;
+}
+
+.footer-column p {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #555;
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links li {
+  margin-bottom: 10px;
+}
+
+.footer-links li a {
+  color: #555;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-links li a:hover {
+  color: #c59d5f; /* kafe e artë për hover */
+}
+
+.footer-bottom {
+  text-align: center;
+  border-top: 1px solid #e0d7ca; /* vijë e lehtë */
+  padding-top: 15px;
+  font-size: 13px;
+  color: #777;
+}
