@@ -1,0 +1,101 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+/* NAVBAR */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 50px;
+  background: white;
+  border-bottom: 1px solid #eee;
+}
+
+/* LOGO */
+.logo {
+  font-size: 22px;
+  font-weight: bold;
+  color: #555;
+}
+
+/* MENU */
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 25px;
+  margin: 0;
+  padding: 0;
+}
+
+/* LINKS */
+nav a {
+  text-decoration: none;
+  color: #555;
+  font-size: 15px;
+  transition: 0.3s;
+}
+/* GENERAL STYLE */
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  background: #f8f6f3; /* soft warm background */
+  color: #2c2c2c;
+}
+
+/* PRODUCTS GRID */
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 35px;
+  padding: 50px 80px;
+}
+
+/* PRODUCT CARD */
+.product-card {
+  background: #ffffff;
+  border-radius: 16px;
+  overflow: hidden;
+  text-align: left;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.05);
+}
+
+/* HOVER EFFECT */
+.product-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.1);
+}
+
+/* IMAGE */
+.product-card img {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+}
+
+/* TEXT CONTAINER */
+.product-card h3 {
+  font-size: 18px;
+  margin: 15px 20px 5px;
+  font-weight: 500;
+}
+
+/* PRICE */
+.price {
+  font-size: 16px;
+  margin: 0 20px 20px;
+  color: #a67c52; /* warm luxury tone */
+  font-weight: 600;
+}
+
+/* OPTIONAL LINE UNDER TITLE */
+.product-card h3::after {
+  content: "";
+  display: block;
+  width: 30px;
+  height: 2px;
+  background: #a67c52;
+  margin-top: 8px;
+}
