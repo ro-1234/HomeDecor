@@ -146,11 +146,23 @@ nav a:hover {
 }
 
 .footer-container {
-  display: flex;
-  justify-content: space-between;
-  gap: 30px;
-  flex-wrap: wrap;
+  display: flex;                /* bëj div-et kolona */
+  justify-content: space-between; /* njera anë majtas, tjetra djathtas */
+  align-items: flex-start;
+  flex-wrap: wrap;              /* për celular */
   margin-bottom: 30px;
+}
+
+.footer-column:first-child {
+  text-align: left;             /* kolona e parë majtas */
+  flex: 1;                      /* zgjat pak hapësirë */
+  min-width: 200px;
+}
+
+.footer-column:last-child {
+  text-align: right;            /* kolona e dytë djathtas */
+  flex: 1;
+  min-width: 200px;
 }
 
 .footer-column h3 {
@@ -182,7 +194,7 @@ nav a:hover {
 }
 
 .footer-links li a:hover {
-  color: #c59d5f; /
+  color: #c59d5f;
 }
 
 .footer-bottom {
@@ -192,12 +204,16 @@ nav a:hover {
   font-size: 13px;
   color: #777;
 }
-/* PRODUCTS GRID */
-.products-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr); 
-  gap: 30px;
-  padding: 50px 80px;
-  max-width: 1400px;
-  margin: auto;
+
+/* Responsive për celular */
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .footer-column:last-child {
+    text-align: center;
+    margin-top: 20px;
+  }
 }
