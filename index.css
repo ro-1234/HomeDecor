@@ -87,24 +87,24 @@ nav a:hover {
   object-fit: cover;
 }
 
-/* Animation keyframes për slider horizontal */
+
 @keyframes slideMove {
   0% { transform: translateX(0); }
   100% { transform: translateX(-100%); }
 }
-/* INFO SECTION */
+
 .info {
   padding: 50px;
   background: #eee;
   text-align: center;
 }
 
-/* Container për cards */
+
 .info-container {
-  display: flex;                  /* horizontal layout */
-  justify-content: space-between; /* shpërndan cards në rresht */
-  gap: 20px;                      /* hapësira mes cards */
-  flex-wrap: nowrap;              /* nuk bëhen njëri mbi tjetrin */
+  display: flex;               
+  justify-content: space-between; 
+  gap: 20px;                     
+  flex-wrap: nowrap;             
 }
 
 /* Secili card */
@@ -112,8 +112,8 @@ nav a:hover {
   background: white;
   padding: 20px;
   border-radius: 10px;
-  flex: 1;            /* merr hapësirë të barabartë */
-  max-width: 300px;   /* madhësi maksimale për secilën card */
+  flex: 1;            
+  max-width: 300px;  
   box-shadow: 0 px 6px rgba(90, 57, 57, 0.881);
 }
 
@@ -128,19 +128,19 @@ nav a:hover {
   color: #666;
 }
 .info-card {
-  background: white;          /* vetë card mbetet e bardhë */
+  background: white;          
   padding: 20px;
   border-radius: 10px;
 
-  flex: 1;                    /* merr hapësirë të barabartë */
+  flex: 1;                    
   max-width: 300px;
 
-  /* Shadow kafe */
-  box-shadow: 0 4px 6px rgba(139, 69, 19, 0.5); /* x-offset y-offset blur ngjyra */
+  
+  box-shadow: 0 4px 6px rgba(139, 69, 19, 0.5); 
 }
 .footer {
-  background: #fef8f0; /* krem shumë i lehtë */
-  color: #333;          /* tekst gri e errët për kontrast */
+  background: #fef8f0; 
+  color: #333;         
   padding: 40px 50px 20px;
   font-family: Arial, sans-serif;
 }
@@ -182,12 +182,12 @@ nav a:hover {
 }
 
 .footer-links li a:hover {
-  color: #c59d5f; /* kafe e artë për hover */
+  color: #c59d5f; /
 }
 
 .footer-bottom {
   text-align: center;
-  border-top: 1px solid #e0d7ca; /* vijë e lehtë */
+  border-top: 1px solid #e0d7ca; 
   padding-top: 15px;
   font-size: 13px;
   color: #777;
@@ -195,7 +195,7 @@ nav a:hover {
 /* PRODUCTS GRID */
 .products-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr); /* 4 per row */
+  grid-template-columns: repeat(4, 1fr); 
   gap: 30px;
   padding: 50px 80px;
   max-width: 1400px;
