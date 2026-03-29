@@ -38,64 +38,91 @@ nav a {
 }
 body {
   margin: 0;
-  font-family: "Poppins", sans-serif;
-  background: #f8f6f3; 
-  color: #2c2c2c;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f8f6f3; 
+  color: #4b3832;
 }
 
-
-.products-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 35px;
-  padding: 50px 80px;
-}
-
-/* PRODUCT CARD */
-.product-card {
-  background: #ffffff;
-  border-radius: 16px;
-  overflow: hidden;
-  text-align: left;
-  transition: all 0.3s ease;
+.story-box {
+  margin-top: 40px;
+  padding: 30px;
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 20px;
   box-shadow: 0 6px 20px rgba(0,0,0,0.05);
+  line-height: 1.7;
 }
 
-/* HOVER EFFECT */
-.product-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 12px 30px rgba(0,0,0,0.1);
+.small {
+  width: 50px;
+  margin-bottom: 20px;
 }
 
-/* IMAGE */
-.product-card img {
-  width: 100%;
-  height: 240px;
+.story-box p {
+  margin-bottom: 15px;
+}
+ 
+.card {
+  background: rgba(255,255,255,0.7);
+  border-radius: 20px;
+  padding: 20px;
+  width: 250px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
+.card img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
   object-fit: cover;
+  margin-bottom: 15px;
 }
 
-/* TEXT CONTAINER */
-.product-card h3 {
-  font-size: 18px;
-  margin: 15px 20px 5px;
-  font-weight: 500;
+.role {
+  font-size: 14px;
+  color: #7a5c58;
+  margin-bottom: 10px;
+}
+.team {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: nowrap; 
 }
 
-/* PRICE */
-.price {
-  font-size: 16px;
-  margin: 0 20px 20px;
-  color: #a67c52; 
-  font-weight: 600;
+.card {
+  width: 250px;
+}
+.team-title {
+  text-align: center;
+}
+.our-story {
+  text-align: center;
+  max-width: 800px;
+  margin: 80px auto;
 }
 
-.product-card h3::after {
-  content: "";
-  display: block;
-  width: 30px;
-  height: 2px;
-  background: #a67c52;
-  margin-top: 8px;
+.story-card {
+  margin-top: 30px;
+  padding: 35px;
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 20px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.05);
+  line-height: 1.7;
+}
+
+.story-card p {
+  margin-bottom: 15px;
+}
+
+.story-card p:last-child {
+  margin-bottom: 0;
 }
 .footer {
   background: #fef8f0; 
@@ -164,15 +191,9 @@ body {
   color: #777;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-  .footer-container {
+@media(max-width: 768px) {
+  .story {
     flex-direction: column;
     text-align: center;
-  }
-
-  .footer-column:last-child {
-    text-align: center;
-    margin-top: 20px;
   }
 }
