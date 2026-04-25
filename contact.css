@@ -37,106 +37,59 @@ nav a {
   transition: 0.3s;
 }
 
-/* HOVER */
-nav a:hover {
-  color: black;
+label {
+  font-size: 14px;
+  font-weight: bold;
 }
 
-/* HERO */
-.hero {
-  height: 90vh;
-  background: url('download.jpg') center/cover;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start; 
-  text-align: left;            
-  padding-left: 80px;         
-  margin-bottom: 50px;
-}
-
-
-.hero h1 {
-  color: black;
-  font-size: 40px;
-  max-width: 600px;
-}
-
-.hero button {
-  padding: 10px 20px;
-}
-
-.photo-slider {
-  display: flex;
+input,
+textarea {
   width: 100%;
-  overflow: hidden;
-  gap: 15px;
-  padding-bottom: 50px;
+  padding: 14px;
+  border: 1px solid #d8d0c4;
+  outline: none;
+  font-size: 15px;
+  background: #fcfbf9;
 }
 
-.photo-slider .slide {
-  flex: 0 0 200px;  
-  height: 150px;
-  border-radius: 10px;
-  overflow: hidden;
-  animation: slideMove 12s linear infinite;
+input:focus,
+textarea:focus {
+  border-color: #9f8764;
 }
 
-.photo-slider .slide img {
+textarea {
+  min-height: 140px;
+  resize: vertical;
+}
+
+button {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  padding: 14px;
+  border: none;
+  background: #6d5a43;
+  color: white;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background 0.3s ease;
 }
 
-
-@keyframes slideMove {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-100%); }
+button:hover {
+  background: #584834;
 }
 
-.info {
-  padding: 50px;
-  background: #eee;
-  text-align: center;
-}
+@media (max-width: 900px) {
+  .page {
+    grid-template-columns: 1fr;
+  }
 
+  .info-panel,
+  .form-panel {
+    padding: 35px 25px;
+  }
 
-.info-container {
-  display: flex;               
-  justify-content: space-between; 
-  gap: 20px;                     
-  flex-wrap: nowrap;             
-}
-
-/* Secili card */
-.info-card {
-  background: white;
-  padding: 20px;
-  border-radius: 10px;
-  flex: 1;            
-  max-width: 300px;  
-  box-shadow: 0 px 6px rgba(90, 57, 57, 0.881);
-}
-
-.info-card h2 {
-  margin-top: 0;
-  font-size: 20px;
-  color: #333;
-}
-
-.info-card p {
-  font-size: 16px;
-  color: #666;
-}
-.info-card {
-  background: white;          
-  padding: 20px;
-  border-radius: 10px;
-
-  flex: 1;                    
-  max-width: 300px;
-
-  
-  box-shadow: 0 4px 6px rgba(139, 69, 19, 0.5); 
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
 }
 .footer {
   background: #fef8f0; 
