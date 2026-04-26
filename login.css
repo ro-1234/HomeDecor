@@ -1,0 +1,101 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", sans-serif;
+}
+
+body {
+    height: 100vh;
+    background: #e8ded7; /* kafe e hapur */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    width: 1150px;
+    height: 650px;
+    background: #fff;
+    border-radius: 20px;
+    display: flex;
+    overflow: hidden;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+}
+
+.left {
+    width: 50%;
+    padding: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.text h1 {
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.text p {
+    color: #9c8f86;
+    margin-bottom: 5px;
+}
+
+.text h2 {
+    font-size: 18px;
+    margin-bottom: 30px;
+    color: #4b3f39;
+}
+
+form {
+    width: 100%;
+}
+
+.input-box {
+    margin-bottom: 15px;
+}
+
+.input-box input {
+    width: 100%;
+    padding: 14px;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    background: #fafafa;
+    transition: 0.3s;
+}
+
+.input-box input:focus {
+    border-color: #c8a27c;
+    background: #fff;
+}
+
+button {
+    width: 100%;
+    padding: 14px;
+    background: #c8a27c; /* kafe e bukur */
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #b68f6c;
+}
+
+
+.right {
+    width: 50%;
+    background: #f3ebe5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.right img {
+    width: 100%;
+    max-width: 579px;
+    opacity: 0.9;
+}
