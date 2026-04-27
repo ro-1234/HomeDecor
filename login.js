@@ -1,28 +1,33 @@
-document.getElementById("registerForm").addEventListener("submit", function(e){
-    e.preventDefault();
+const form = document.getElementById("loginForm");
+const errorDiv = document.getElementById("error");
 
-    let username = document.getElementById("username").value.trim();
-    let email = document.getElementById("email").value.trim();
-    let password = document.getElementById("password").value;
-    let confirmPassword = document.getElementById("confirmPassword").value;
-    let error = document.getElementById("error");
+form.addEventListener("submit", function(e) {
+  e.preventDefault();
 
-    error.innerHTML = "";
+  const username = document.getElementById("username").value.trim();
+  const password = document.getElementById("password").value.trim();
 
-    if(username === "" || email === "" || password === "" || confirmPassword === ""){
-        error.innerHTML = "All fields are required!";
-        return;
-    }
+  errorDiv.textContent = "";
 
-    if(password.length < 6){
-        error.innerHTML = "Password must be at least 6 characters!";
-        return;
-    }
+  // username min 3 characters
+  if (username.length < 3) {
+    errorDiv.textContent = "Username must be at least 3 characters long!";
+    return;
+  }
 
-    if(password !== confirmPassword){
-        error.innerHTML = "Passwords do not match!";
-        return;
-    }
+  // password min 6 characters
+  if (password.length < 6) {
+    errorDiv.textContent = "Password must be at least 6 characters long!";
+    return;
+  }
 
-    alert("Account created successfully!");
+  // password must contain at least one number
+  const numberRegex = /[0-9]/;
+  if (!numberRegex.test(password)) {
+    errorDiv.textContent = "Password must contain at least one number!";
+    return;
+  }
+
+  alert("Login successful!");
+  form.reset();
 });
