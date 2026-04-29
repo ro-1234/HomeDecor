@@ -325,3 +325,27 @@ body {
   font-weight: bold;
   text-align: center;
 }
+.why {
+  display: flex;
+  gap: 40px;
+  align-items: center;
+}
+
+/* TEKSTI */
+.why-text {
+  flex: 1;
+}
+
+/* IMAZHI */
+.why-img {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.why-img img {
+  width: 80%;        /* e ben me te vogel */
+  max-width: 350px;  /* kufi maksimal */
+  height: auto;
+  border-radius: 10px;
+}
