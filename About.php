@@ -11,11 +11,11 @@
 <nav>
   <div class="logo">HomeDecor</div>
   <ul>
- <li><a href="index.html">Home</a></li>
-<li><a href="Products.html">Products</a></li>
-<li><a href="About.html">About</a></li>
-<li><a href="Contact.html">Contact</a></li>
-<li><a href="blog.html">Blog</a></li>
+    <li><a href="index.php">Home</a></li>
+    <li><a href="Products.php">Products</a></li>
+    <li><a href="About.php">About</a></li>
+    <li><a href="Contact.php">Contact</a></li>
+    <li><a href="blog.php">Blog</a></li>
   </ul>
 </nav>
 
@@ -72,18 +72,19 @@
     </div>
 
     <!-- Quick Links -->
-    <div class="footer-column">
-       <h3>Quick Links</h3>
+     <div class="footer-column">
+     <h3>Quick Links</h3>
       <ul class="footer-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="Products.html">Products</a></li>
-        <li><a href="About.html">About</a></li>
-        <li><a href="Contact.html">Contact</a></li>
-             <li><a href="blog.html">Blog</a></li>
+        <li><a href="index.php">Home</a></li>
+        <li><a href="Products.php">Products</a></li>
+        <li><a href="About.php">About</a></li>
+        <li><a href="Contact.php">Contact</a></li>
+        <li><a href="blog.php">Blog</a></li>
       </ul>
     </div>
+
   </div>
-      
+
       
   <div class="footer-bottom">
     <p>&copy; 2026 HomeDecor. All rights reserved.</p>
