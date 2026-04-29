@@ -344,8 +344,8 @@ body {
 }
 
 .why-img img {
-  width: 80%;        /* e ben me te vogel */
-  max-width: 350px;  /* kufi maksimal */
+  width: 80%;       
+  max-width: 350px;  
   height: auto;
   border-radius: 10px;
 }
