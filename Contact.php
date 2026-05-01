@@ -1,3 +1,41 @@
+<?php
+require "database.php";
+
+$success = "";
+$error = "";
+
+if($_SERVER["REQUEST_METHOD"] === "POST"){
+
+    $name = trim($_POST['name'] ?? '');
+    $email = trim($_POST['email'] ?? '');
+    $subject = trim($_POST['subject'] ?? '');
+    $message = trim($_POST['message'] ?? '');
+
+    if(!$name || !$email || !$subject || !$message){
+        $error = "All fields are required";
+    } else {
+        $db = new Database();
+        $conn = $db->getConnection();
+
+        $query = "INSERT INTO contacts (name, email, subject, message) 
+                  VALUES (:name, :email, :subject, :message)";
+
+        $stmt = $conn->prepare($query);
+
+        $stmt->bindParam(":name", $name);
+        $stmt->bindParam(":email", $email);
+        $stmt->bindParam(":subject", $subject);
+        $stmt->bindParam(":message", $message);
+
+        if($stmt->execute()){
+            $success = "Message sent successfully!";
+        } else {
+            $error = "Something went wrong!";
+        }
+    }
+}
+?>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -33,33 +71,41 @@
     </section>
 
     <section class="form-panel">
-      <form class="contact-form" action="#" method="post">
-        <h2>Send a Message</h2>
+     <form class="contact-form" action="contact.php" method="post">
+  <h2>Send a Message</h2>
 
-        <div class="form-grid">
-          <div class="field">
-            <label for="name">Full Name</label>
-            <input type="text" id="name" name="name" required />
-          </div>
+  <?php if(!empty($success)): ?>
+    <p style="color:green;"><?php echo $success; ?></p>
+  <?php endif; ?>
 
-          <div class="field">
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" required />
-          </div>
+  <?php if(!empty($error)): ?>
+    <p style="color:red;"><?php echo $error; ?></p>
+  <?php endif; ?>
 
-          <div class="field full">
-            <label for="subject">Subject</label>
-            <input type="text" id="subject" name="subject" required />
-          </div>
+  <div class="form-grid">
+    <div class="field">
+      <label for="name">Full Name</label>
+      <input type="text" id="name" name="name" required />
+    </div>
 
-          <div class="field full">
-            <label for="message">Message</label>
-            <textarea id="message" name="message" required></textarea>
-          </div>
-        </div>
+    <div class="field">
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" required />
+    </div>
 
-        <button type="submit">Send Message</button>
-      </form>
+    <div class="field full">
+      <label for="subject">Subject</label>
+      <input type="text" id="subject" name="subject" required />
+    </div>
+
+    <div class="field full">
+      <label for="message">Message</label>
+      <textarea id="message" name="message" required></textarea>
+    </div>
+  </div>
+
+  <button type="submit">Send Message</button>
+</form>
     </section>
   </main>
   <footer class="footer">

@@ -1,7 +1,8 @@
+
 const form = document.getElementById("registerForm");
 const errorDiv = document.getElementById("error");
 
-form.addEventListener("submit", function(e) {
+form.addEventListener("submit", async function(e) {
   e.preventDefault();
 
   const name = document.getElementById("name").value.trim();
@@ -11,39 +12,51 @@ form.addEventListener("submit", function(e) {
 
   errorDiv.textContent = "";
 
-  if (name === "" || username === "" || email === "" || password === "") {
-    errorDiv.textContent = "Please fill in all fields!";
+  // 🔒 Validime
+  if (name.length < 3) {
+    errorDiv.textContent = "Name must be at least 3 characters";
     return;
   }
 
-  // username min 3 chars
-  const usernameRegex = /^.{3,}$/;
-  if (!usernameRegex.test(username)) {
-    errorDiv.textContent = "Username must be at least 3 characters!";
+  if (username.length < 3) {
+    errorDiv.textContent = "Username must be at least 3 characters";
     return;
   }
 
-  // email validation
-  const emailRegex = /^\S+@\S+\.\S+$/;
-  if (!emailRegex.test(email)) {
-    errorDiv.textContent = "Invalid email!";
+  if (!email.includes("@")) {
+    errorDiv.textContent = "Invalid email";
     return;
   }
 
-  // password min 6 characters
   if (password.length < 6) {
-    errorDiv.textContent = "Password must be at least 6 characters long!";
+    errorDiv.textContent = "Password must be at least 6 characters";
     return;
   }
 
-  // password must contain at least one number
-  const numberRegex = /[0-9]/;
-  if (!numberRegex.test(password)) {
-    errorDiv.textContent = "Password must contain at least one number!";
-    return;
-  }
+  const formData = new FormData();
+  formData.append("name", name);
+  formData.append("username", username);
+  formData.append("email", email);
+  formData.append("password", password);
 
-  // success
-  alert("Registration successful!");
-  form.reset();
+  try {
+    const response = await fetch("register.php", {
+      method: "POST",
+      body: formData
+    });
+
+    const data = await response.text();
+    console.log("SERVER RESPONSE:", data);
+
+    if (data.trim() === "success") {
+      alert("Registered successfully!");
+      window.location.href = "login.php";
+    } else {
+      errorDiv.textContent = data;
+    }
+
+  } catch (error) {
+    errorDiv.textContent = "Network error!";
+    console.error(error);
+  }
 });

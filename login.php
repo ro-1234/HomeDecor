@@ -1,3 +1,33 @@
+<?php
+session_start();
+
+require "database.php";
+require "users.php";
+
+if($_SERVER["REQUEST_METHOD"] == "POST"){
+
+    $email = $_POST['email'] ?? '';
+    $password = $_POST['password'] ?? '';
+
+    $db = (new Database())->getConnection();
+    $user = new Users($db);
+
+    $loggedUser = $user->login($email, $password);
+
+    if($loggedUser){
+
+        //  SESSION
+        $_SESSION['user_id'] = $loggedUser['id'];
+        $_SESSION['username'] = $loggedUser['username'];
+        $_SESSION['role'] = $loggedUser['role'];
+
+        echo "Login successful as " . $loggedUser['role'];
+
+    } else {
+        echo "Invalid credentials";
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -44,7 +74,7 @@
     <!-- LINK për register -->
     <p style="margin-top:15px;">
       Don’t have an account? 
-      <a href="register.html">Sign up</a>
+      <a href="register.php">Sign up</a>
     </p>
   </div>
 

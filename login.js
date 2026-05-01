@@ -1,7 +1,7 @@
 const form = document.getElementById("loginForm");
 const errorDiv = document.getElementById("error");
 
-form.addEventListener("submit", function(e) {
+form.addEventListener("submit", async function(e) {
   e.preventDefault();
 
   const username = document.getElementById("username").value.trim();
@@ -28,6 +28,22 @@ form.addEventListener("submit", function(e) {
     return;
   }
 
-  alert("Login successful!");
-  form.reset();
+
+  const formData = new FormData();
+  formData.append("username", username);
+  formData.append("password", password);
+
+  const response = await fetch("login.php", {
+    method: "POST",
+    body: formData
+  });
+
+  const data = await response.text();
+
+  if (data === "success") {
+    alert("Login successful!");
+    window.location.href = "index.php"; 
+  } else {
+    errorDiv.textContent = data;
+  }
 });

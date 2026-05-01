@@ -22,7 +22,7 @@
 <section class="hero">
   <div class="hero-text">
     <h1>Limited Edition Home Interior Design Collection</h1>
-   <a href="login.html"><button>Login</button></a>
+   <a href="login.php"><button>Login</button></a>
   </div>
 </section>
 <section class="info">
