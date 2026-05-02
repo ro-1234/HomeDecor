@@ -8,16 +8,27 @@ class Users {
         $this->conn = $db;
     }
 
-    // 🔵 REGISTER USER
+    // REGISTER
     public function register($name, $username, $email, $password, $role = "user"){
 
         try {
+
+            // kontrollo nëse ekziston user
+            $check = "SELECT id FROM users WHERE username = :username OR email = :email";
+            $stmt = $this->conn->prepare($check);
+            $stmt->bindParam(":username", $username);
+            $stmt->bindParam(":email", $email);
+            $stmt->execute();
+
+            if($stmt->fetch()){
+                return false; // user ekziston
+            }
+
             $sql = "INSERT INTO users (name, username, email, password, role)
                     VALUES (:name, :username, :email, :password, :role)";
 
             $stmt = $this->conn->prepare($sql);
 
-            // hash password
             $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
             $stmt->bindParam(":name", $name);
@@ -29,19 +40,17 @@ class Users {
             return $stmt->execute();
 
         } catch (PDOException $e) {
-            // 🔥 shfaq error real nëse diçka shkon keq
-            echo "DB ERROR: " . $e->getMessage();
             return false;
         }
     }
 
-    // 🔵 LOGIN USER (me email)
-    public function login($email, $password){
+    // LOGIN me USERNAME
+    public function login($username, $password){
 
         try {
-            $sql = "SELECT * FROM users WHERE email = :email LIMIT 1";
+            $sql = "SELECT * FROM users WHERE username = :username LIMIT 1";
             $stmt = $this->conn->prepare($sql);
-            $stmt->bindParam(":email", $email);
+            $stmt->bindParam(":username", $username);
             $stmt->execute();
 
             $user = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -53,9 +62,7 @@ class Users {
             return false;
 
         } catch (PDOException $e) {
-            echo "DB ERROR: " . $e->getMessage();
             return false;
         }
     }
 }
-?>

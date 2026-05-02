@@ -12,7 +12,6 @@ form.addEventListener("submit", async function(e) {
 
   errorDiv.textContent = "";
 
-  // 🔒 Validime
   if (name.length < 3) {
     errorDiv.textContent = "Name must be at least 3 characters";
     return;
