@@ -9,41 +9,41 @@ form.addEventListener("submit", async function(e) {
 
   errorDiv.textContent = "";
 
-  // username min 3 characters
   if (username.length < 3) {
     errorDiv.textContent = "Username must be at least 3 characters long!";
     return;
   }
 
-  // password min 6 characters
   if (password.length < 6) {
     errorDiv.textContent = "Password must be at least 6 characters long!";
     return;
   }
 
-  // password must contain at least one number
   const numberRegex = /[0-9]/;
   if (!numberRegex.test(password)) {
     errorDiv.textContent = "Password must contain at least one number!";
     return;
   }
 
-
   const formData = new FormData();
   formData.append("username", username);
   formData.append("password", password);
 
-  const response = await fetch("login.php", {
-    method: "POST",
-    body: formData
-  });
+  try {
+    const response = await fetch("login.php", {
+      method: "POST",
+      body: formData
+    });
 
-  const data = await response.text();
+    const data = await response.text();
 
-  if (data === "success") {
-    alert("Login successful!");
-    window.location.href = "index.php"; 
-  } else {
-    errorDiv.textContent = data;
+    if (data.trim() === "success") {
+      window.location.href = "index.php";
+    } else {
+      errorDiv.textContent = data;
+    }
+
+  } catch (error) {
+    errorDiv.textContent = "Server error!";
   }
 });

@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 require "database.php";
 require "users.php";
 
@@ -22,13 +24,13 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
     $result = $user->register($name, $username, $email, $password, "user");
 
-    if($result){
-        echo "success"; 
+    if($result === true){
+        echo "success";
     } else {
-        echo "Database error";
+        echo $result;
     }
 
-    exit; //  
+    exit;
 }
 ?>
 
