@@ -1,11 +1,6 @@
 <?php
-session_start();
-
 require "database.php";
 require "users.php";
-
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
 
 if($_SERVER["REQUEST_METHOD"] == "POST"){
 
@@ -14,20 +9,15 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     $email = $_POST['email'] ?? '';
     $password = $_POST['password'] ?? '';
 
-    if(empty($name) || empty($username) || empty($email) || empty($password)){
-        echo "All fields are required";
-        exit;
-    }
-
     $db = (new Database())->getConnection();
     $user = new Users($db);
 
-    $result = $user->register($name, $username, $email, $password, "user");
+    $result = $user->register($name, $username, $email, $password);
 
-    if($result === true){
+    if($result){
         echo "success";
     } else {
-        echo $result;
+        echo "error";
     }
 
     exit;
