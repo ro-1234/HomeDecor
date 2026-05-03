@@ -19,12 +19,12 @@ form.addEventListener("submit", async function(e) {
     return;
   }
 
-  const numberRegex = /[0-9]/;
-  if (!numberRegex.test(password)) {
+  if (!/[0-9]/.test(password)) {
     errorDiv.textContent = "Password must contain at least one number!";
     return;
   }
 
+ 
   const formData = new FormData();
   formData.append("username", username);
   formData.append("password", password);
@@ -36,11 +36,19 @@ form.addEventListener("submit", async function(e) {
     });
 
     const data = await response.text();
+    const res = data.trim().toLowerCase();
 
-    if (data.trim() === "success") {
+    console.log("RESPONSE:", JSON.stringify(data));
+
+  
+    if (res === "admin") {
+      window.location.href = "dashboard.php";
+    } 
+    else if (res === "user") {
       window.location.href = "index.php";
-    } else {
-      errorDiv.textContent = data;
+    } 
+    else {
+      errorDiv.textContent = "Invalid credentials";
     }
 
   } catch (error) {

@@ -20,15 +20,18 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         $_SESSION['username'] = $loggedUser['username'];
         $_SESSION['role'] = $loggedUser['role'];
 
-        echo "success";
-        exit; 
+       
+        $role = strtolower(trim($loggedUser['role'] ?? 'user'));
+
+        exit($role);
 
     } else {
-        echo "Invalid credentials";
-        exit; 
+        exit("error");
     }
 }
 ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -49,6 +52,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     <li><a href="blog.php">Blog</a></li>
   </ul>
 </nav>
+
 <div class="container">
 
   <!-- LEFT -->
@@ -72,7 +76,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
       <div id="error" style="color:red; margin-top:10px;"></div>
     </form>
 
-    <!-- LINK për register -->
     <p style="margin-top:15px;">
       Don’t have an account? 
       <a href="register.php">Sign up</a>
@@ -94,9 +97,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
       <p>Elegant furniture & decor for the modern home. Crafted with quality and care.</p>
     </div>
 
-
-     <div class="footer-column">
-     <h3>Quick Links</h3>
+    <div class="footer-column">
+      <h3>Quick Links</h3>
       <ul class="footer-links">
         <li><a href="index.php">Home</a></li>
         <li><a href="Products.php">Products</a></li>
@@ -107,11 +109,13 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     </div>
 
   </div>
+
   <div class="footer-bottom">
     <p>&copy; 2026 HomeDecor. All rights reserved.</p>
   </div>
 </footer>
 
 <script src="login.js"></script>
+
 </body>
 </html>
