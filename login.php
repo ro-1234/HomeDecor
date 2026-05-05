@@ -1,8 +1,8 @@
 <?php
 session_start();
 
-require "database.php";
-require "users.php";
+require_once "database.php";
+require_once "users.php";
 
 if($_SERVER["REQUEST_METHOD"] == "POST"){
 
