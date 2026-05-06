@@ -86,14 +86,15 @@ if(isset($_GET['delete_user'])){
 /* ADD USER */
 if(isset($_POST['add_user'])){
     $username = $_POST['username'];
+    $email = $_POST['email'];
     $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
     $role = $_POST['role'];
 
-    if($username && $_POST['password']){
+    if($username && $email && $_POST['password']){
         $conn->prepare("
-            INSERT INTO users(username,password,role)
-            VALUES(?,?,?)
-        ")->execute([$username,$password,$role]);
+            INSERT INTO users(username,email,password,role)
+            VALUES(?,?,?,?)
+        ")->execute([$username,$email,$password,$role]);
     }
 }
 
@@ -206,6 +207,7 @@ PDF: <input type="file" name="pdf"><br><br>
 
 <form method="POST">
 <input name="username" placeholder="Username" required>
+<input name="email" placeholder="Email" required>
 <input name="password" placeholder="Password" required>
 
 <select name="role">
